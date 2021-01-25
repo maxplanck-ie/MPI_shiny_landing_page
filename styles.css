@@ -1,0 +1,44 @@
+/* use this to put borders around things*/
+.thin_border{
+ border: 1px solid black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  font-weight: bold;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  font-weight: bold;
+  color: black;
+}
+
+.carousel-caption  {
+    color: green;
+    top: 0;
+    bottom: 100;
+    font-size: 25px;
+    
+}
+
+.carousel-item img {
+     opacity: 0.5;
+   }
+
+

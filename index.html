@@ -1,0 +1,340 @@
+<html>
+    <head>
+        <title>Welcome to the MPI-IE shiny app page.</title>
+
+        <!-- import bootstrap -->
+	<link rel="stylesheet"
+	    type="text/css"
+	    href="bootstrap.css"
+	/>
+        <!-- import custom stylesheet -->
+	<link rel="stylesheet"
+	    type="text/css"
+	    href="styles.css"
+	/>
+        <!-- import jQuery -->
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- import bootstrap.js -->
+	<script src="bootstrap.js"></script>
+    </head>
+
+    <body>
+	<div class="jumbotron">
+        <h1 class="display-4">Welcome to the MPI-IE shiny app page</h1>
+        &nbsp;
+        <p class="lead">Choose an app you would like to run.</p>
+        &nbsp;
+	</div>
+        <div class="row m-4">
+		<div class="card text-white bg-success m-3" style="max-width: 18rem;">
+			<div class="card-header"><a href="http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/snakequest/" id="snakequest" class="text-white" onclick="submitLoggerEvent('snakequest')">Snakequest</a></div>
+			<div class="card-body">
+				<p class="card-text">Submit an NGS data processing request.</p>
+			</div>
+		</div>
+		<div class="card text-white bg-primary m-3 m-1" style="max-width: 18rem;">
+			<div class="card-header"><a  href="http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/scRNAseq_shiny_app/" id="scRNAseq" class="text-white" onclick="submitLoggerEvent('scRNAseq')">scRNAseq_app</a></div>
+			<div class="card-body">
+				<p class="card-text">Visualize features in your processed scRNAseq dataset.</p>
+			</div>
+		</div>
+		<div class="card text-white bg-secondary m-3" style="max-width: 18rem;">
+			<div class="card-header"><a  href="http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/Genes2Functions/" id="clusterProfiler" class="text-white" onclick="submitLoggerEvent('clusterProfiler')">ClusterProfiler</a></div>
+			<div class="card-body">
+				<p class="card-text">Analyze GO process enrichment in your list of differentially expressed genes.</p>
+			</div>
+		</div>
+		<!--<div class="card text-black bg-light m-3" style="max-width: 18rem;">
+			<div class="card-header text-black" ><a  href="http://galaxy.ie-freiburg.mpg.de:3838/sikora/iSEE_wrapper" class="text-black">iSEE</a></div>
+			<div class="card-body">
+				<p class="card-text">Launch iSEE on your Single Cell Experiment dataset. See <a href="https://f1000research.com/articles/7-741/v1"> link</a> for publication.</p>
+			</div>
+		</div> -->
+		<div class="card text-white bg-warning m-3" style="max-width: 18rem;">
+			<div class="card-header"><a  href="http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/bulkRNAseq_MPI_shiny_app" id="bulkRNAseq" class="text-white" onclick="submitLoggerEvent('bulkRNAseq')">BulkRNAseq app</a></div>
+			<div class="card-body">
+				<p class="card-text">Plot heatmap and barplots for your genes of interest from your feature counts table.</p>
+			</div>
+		</div>
+               <!-- <div class="card text-white bg-info m-3" style="max-width: 18rem;">
+                        <div class="card-header"><a  href="http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/DGE-viz" id="DGE-viz" class="text-white" onclick="submitLoggerEvent('DGEviz')">DGE Viz</a></div>
+                        <div class="card-body">
+                                <p class="card-text">Manually select genes on interactive MA and Volcano plots.</p>
+                        </div>
+                </div> -->
+	</div>
+	<div class="row justify-content-center">
+		<div id="carouselAnalysisExamples" class="carousel slide col-md-6" data-ride="carousel">
+		    
+  		    <div class="carousel-inner">
+    			<div class="carousel-item active">
+      				<img class="d-block img-fluid w-100" src="snakequest_1.png" alt="First slide">
+				<div class="carousel-caption">
+    				    <h5>Snakequest</h5>
+    				    <p>Retrieve fastq or bam files from your sequencing folder.</p>
+  				</div>
+    			</div>
+    			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="snakequest_2.png" alt="Second slide">
+				<div class="carousel-caption">
+    				    <h5>Snakequest</h5>
+    				    <p>Provide additional details and submit your request.</p>
+  				</div>
+    			</div>
+    			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_1.png" alt="Third slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Inspect the metric used for cluster number selection.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_2.png" alt="Fourth slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Update and visualize the number of clusters.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_3.png" alt="Fifth slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Extract and visualize cluster marker genes.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_4.png" alt="Sixth slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Plot expression of selected genes on a tSNE map.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_5.png" alt="Seventh slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Get top correlated genes to the genes of interest.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_6.png" alt="Eightth slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Plot pairwise gene expression in single cells.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="scRNAseq_7.png" alt="Nineth slide">
+				<div class="carousel-caption">
+    				    <h5>ScRNAseq app</h5>
+    				    <p>Document your analysis by downloading session info.</p>
+  				</div>
+    			</div>
+			<!--<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="iSEE_1.png" alt="Tenth slide">
+				<div class="carousel-caption">
+    				    <h5>iSEE</h5>
+    				    <p>Inspect technical aspects of gene expression in your single cell data.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="iSEE_2.png" alt="Eleventh slide">
+				<div class="carousel-caption">
+    				    <h5>iSEE</h5>
+    				    <p>Inspect technical aspects of gene expression in your single cell data.</p>
+  				</div>
+    			</div> -->
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="clusterProfiler_1.png" alt="Twelveth slide">
+				<div class="carousel-caption">
+    				    <h5>clusterProfiler</h5>
+    				    <p>Apply and visualize filter criteria to your DGE analysis results.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="clusterProfiler_2.png" alt="Thirteenth slide">
+				<div class="carousel-caption">
+    				    <h5>clusterProfiler</h5>
+    				    <p>Extract and visualize top enriched GO terms in your up/down-regulated genes.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="clusterProfiler_3.png" alt="Fourteenth slide">
+				<div class="carousel-caption">
+    				    <h5>clusterProfiler</h5>
+    				    <p>Visualize gene overlaps between your top enriched GO terms.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="bulkRNAseq_1.png" alt="Fifteenth slide">
+				<div class="carousel-caption">
+    				    <h5>Bulk RNAseq app</h5>
+    				    <p>Get a table of log2CPM normalized counts for your genes of interest.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="bulkRNAseq_2.png" alt="Sixteenth slide">
+				<div class="carousel-caption">
+    				    <h5>Bulk RNAseq app</h5>
+    				    <p>Plot heatmap for your genes of interest.</p>
+  				</div>
+    			</div>
+			<div class="carousel-item">
+      				<img class="d-block img-fluid w-100" src="bulkRNAseq_3.png" alt="Seventeenth slide">
+				<div class="carousel-caption">
+    				    <h5>Bulk RNAseq app</h5>
+    				    <p>Plot mean log2CPM per sample group for your genes of interest.</p>
+  				</div>
+    			</div>
+  		  </div>
+  		  <a class="carousel-control-prev" href="#carouselAnalysisExamples" role="button" data-slide="prev">
+    		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    		  <span class="sr-only">Previous</span>
+  		  </a>
+  		  <a class="carousel-control-next" href="#carouselAnalysisExamples" role="button" data-slide="next">
+    		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    		  <span class="sr-only">Next</span>
+  		  </a>
+	    </div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="page-footer font-small blue pt-4">
+		<img src="Minerva_green_rgb.jpg"  width="140px" height="100px"> <!--class="img-fluid"-->
+		<img src="MPIIE_en_logo_text.jpg"  width="350px" height="100px">
+    		<!-- Copyright -->
+    		<div class="footer-copyright text-center py-3">© 2019 Copyright: <a href="https://www.ie-freiburg.mpg.de/bioinformaticsfac">MPI-IE Freiburg BioInfo Unit</a></div>
+	</footer>
+        <script>
+		//get host -> pass to some switches depending if you're on shiny or apache
+		if ( window.location.host.toString() == "deep5.ie-freiburg.mpg.de:2727" ) {var dom_string=window.location.host.toString();
+		} else {
+		var dom_string=window.location.host.toString() + '/bioinfo_official_apps';
+		} ;
+		// when the user clicks on the scRNAseq app
+                // timestamps on the logs of scRNAseq app copy logs will be examined
+                // and the link to the app instance with the oldest log will be returned
+		
+
+			function loadDoc() {
+  				var xhttp = new XMLHttpRequest();
+				if (!xhttp) {
+      					alert('Giving up :( Cannot create an XMLHTTP instance');
+      					return false;
+    				}
+				
+  					xhttp.onreadystatechange = function() {
+					var app_inst = ["scRNAseq_aux0","scRNAseq_aux1","scRNAseq_aux2","scRNAseq_aux3"];
+    						if (xhttp.readyState == 4 && xhttp.status == 200) {
+      							var res = xhttp.responseText.split('\n');
+							function checkLogStatus(query){
+								return !res.includes(query);
+							}
+							var matchArray = app_inst.filter(checkLogStatus);
+							if (matchArray.length > 0) {
+							document.getElementById("ori_link").innerHTML = "http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/" +matchArray[0];
+							document.getElementById("ori_link").href = "http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/" +matchArray[0];
+							}else{
+								document.getElementById("ori_link").innerHTML = "http://deep5.ie-freiburg.mpg.de:3838/bioinfo_official_apps/" +res[0];
+								document.getElementById("ori_link").href = "http://galaxy.ie-freiburg.mpg.de:3838/bioinfo_official_apps/" +res[0];
+								alert("All app instances have been used recently. You might be sharing the resources with another user and experiencing additional waiting time as a result.");
+								}
+							
+    							}
+										}
+				
+				
+				try {
+  					xhttp.open("GET", 'http://'+dom_string+"/scRNAseq_log_cron.txt", true);
+					xhttp.send();
+				}//end of try
+				catch( e ) {
+    					alert('Caught Exception: ' + e.description);
+  				}//end of catch*/
+			};//end of loadDoc
+
+		//on clicking of the scRNAseq app link, increase the size of the box or remove the border
+		/*$('#ori_link').click(function(){
+			$('#box2').addClass('col-md-6');
+			});*/
+
+    /* Function submitLoggerEvent
+	** Paramams:
+	** id: ID Specifies a unique id for the element in use
+	*/
+
+    function submitLoggerEvent(id) {
+
+		// Treat as an object
+        var jsonobj = document.getElementById(id);	
+
+        // Obtain the writeable JSON key value pairs
+		var jsonstr=JSON.stringify(getKeys(jsonobj));
+
+        // AJAX call to logger service
+        $.ajax( {
+           url: 'http://'+dom_string+'/logger.php',
+           type: 'POST',
+           data: {data: jsonstr},
+           success: console.log("Ye gods it worked!")
+         })
+       // Code to run if the request succeeds (is done);
+       // The response is passed to the function
+      .done(function( response ) {
+      console.log( "Response: " + response );
+      })
+      // Code to run if the request fails; the raw request and
+      // status codes are passed to the function
+      .fail(function( xhr, status, errorThrown ) {
+        console.log( "Sorry, there was a problem!" );
+        console.log( "Error: " + errorThrown );
+        console.log( "Status: " + status );
+        console.dir( xhr );
+      })
+      // Code to run regardless of success or failure;
+      .always(function( xhr, status ) {
+      console.log( "The request is complete!" );
+      });
+
+   };
+
+ /* Function getKeys
+	** Paramams:
+	** obj: Unique object for the element in use
+	*/
+
+    function getKeys(obj) {
+
+		// Initialize variable
+        var keys = {};
+
+        // Record should be earmarked with date
+		keys.date = Date();
+		keys.host = obj["host"];
+		keys.id=obj["id"];
+		keys.baseURI=obj["baseURI"];
+
+        /** For all property keys in the object
+		// We are only going one level deep for this demo
+        for(var key in obj){
+		    try {			
+		        var type = typeof(obj[key]);
+
+				// Choose only those that are writeable and have an actual value
+				if ((type == 'string' ) && ((obj[key] != null) && (obj[key] != ""))) {
+				    keys[key] = obj[key];
+				}
+		    }
+		    catch (err) {
+				alert(err);		    
+		    }
+        }**/
+		return keys;
+    };
+
+		
+		    		
+	</script>
+    </body>
+
+</html>
